@@ -9,11 +9,8 @@ import com.example.newsappmvvm.repose.NewsRepositery
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class TrendViewModel: ViewModel() {
-    val repo : NewsRepositery
-    init {
-        repo = NewsRepositery()
-    }
+class TrendViewModel(val repo : NewsRepositery): ViewModel() {
+
 
     private var __newsTrendy = MutableLiveData<CarsResponse>()
     val newsTrendy : LiveData<CarsResponse>

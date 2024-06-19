@@ -9,11 +9,8 @@ import com.example.newsappmvvm.repose.NewsRepositery
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class SearchViewModel:ViewModel() {
-    val repo : NewsRepositery
-    init {
-        repo = NewsRepositery()
-    }
+class SearchViewModel(val repo : NewsRepositery):ViewModel() {
+
 
     private var __newsSearch = MutableLiveData<CarsResponse>()
     val newsSearch : LiveData<CarsResponse>

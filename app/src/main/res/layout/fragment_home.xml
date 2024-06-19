@@ -9,7 +9,8 @@
     >
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    >
 
     <TextView
         android:id="@+id/textView"
@@ -18,6 +19,7 @@
         android:fontFamily="@font/cairo_black"
         android:text="Cars News"
         android:textSize="30sp"
+        android:layout_marginStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

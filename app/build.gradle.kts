@@ -3,6 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-parcelize")
+    id("kotlin-kapt")
+
 }
 
 android {
@@ -55,9 +57,7 @@ dependencies {
     val lifecycle_version = "2.4.0"
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
-//    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
-//    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
-    // ViewModel utilities for Compose
+
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")
     // LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
@@ -70,5 +70,15 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.squareup.okhttp3:logging-interceptor:4.5.0")
     implementation("com.squareup.picasso:picasso:2.5.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+
+    val room_version = "2.6.1"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor ("androidx.room:room-compiler:$room_version")
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:$room_version")
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$room_version")
 
 }
