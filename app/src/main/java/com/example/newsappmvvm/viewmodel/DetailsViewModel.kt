@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.newsappmvvm.model.CarsResponse
-import com.example.newsappmvvm.model.New
+import com.example.newsappmvvm.model.Article
 import com.example.newsappmvvm.repose.NewsRepositery
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -15,9 +15,10 @@ class DetailsViewModel(val repo: NewsRepositery) : ViewModel() {
     val newsDetails: LiveData<CarsResponse> get() = _newsDetails
 
     private val _checkExistence = MutableLiveData<Boolean>()
-    val checkExistence: LiveData<Boolean> get() = _checkExistence
+    val checkExistence: LiveData<Boolean>
+        get() = _checkExistence
 
-    fun insertToFav(new: New) {
+    fun insertToFav(new: Article) {
         viewModelScope.launch(Dispatchers.IO) {
             repo.insertNew(new)
             _checkExistence.postValue(repo.isExisted(new.url))

@@ -1,5 +1,6 @@
 package com.example.newsappmvvm.ui.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.newsappmvvm.adapters.TrendyAdapters
 import com.example.newsappmvvm.data.local.NewsDatabase
 import com.example.newsappmvvm.databinding.FragmentTrendyBinding
-import com.example.newsappmvvm.model.New
+import com.example.newsappmvvm.model.Article
 import com.example.newsappmvvm.repose.NewsRepositery
 import com.example.newsappmvvm.viewmodel.TrendViewModel
 import com.example.newsappmvvm.viewmodel.TrendViewModelProviderFactory
@@ -35,13 +36,14 @@ class TrendyFragment : Fragment() {
         return binding.root
     }
 
+ @SuppressLint("SuspiciousIndentation")
  fun setUpTrendy(){
      viewModel.newsTrendy.observe(viewLifecycleOwner, Observer {
          binding.recyclerTrendy.apply {
              adapter = TrendyAdapters(context, onItemClick = {
                val action = TrendyFragmentDirections.actionTrendyFragmentToDetailsFragment(it)
                  findNavController().navigate(action)
-             },it.news as ArrayList<New>)
+             },it.news as ArrayList<Article>)
          }
      })
  }

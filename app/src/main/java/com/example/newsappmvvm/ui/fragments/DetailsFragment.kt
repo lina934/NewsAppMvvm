@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -38,6 +37,7 @@ class DetailsFragment : Fragment() {
         val detailsViewModelProviderFactory = DetailsViewModelProviderFactory(repo)
         viewModel = ViewModelProvider(this, detailsViewModelProviderFactory)[DetailsViewModel::class.java]
         viewModel.checkFavMovies(args.argsDetails.url)
+        setUpDetails()
 
         binding.iconfav.setOnClickListener {
             if (found) {
@@ -47,20 +47,18 @@ class DetailsFragment : Fragment() {
             }
         }
 
-        setUpDetails()
         subScribeToExisted()
         return binding.root
     }
 
     private fun setUpDetails() {
-        viewModel.newsDetails.observe(viewLifecycleOwner, Observer {
-            binding.newsname.text = args.argsDetails.source.name
+//            binding.newsname.text = args.argsDetails.source.name
             binding.nwestitle.text = args.argsDetails.description
             Picasso.with(context).load(args.argsDetails.urlToImage).into(binding.image)
             binding.back.setOnClickListener {
                 findNavController().popBackStack()
             }
-        })
+
 
     }
 

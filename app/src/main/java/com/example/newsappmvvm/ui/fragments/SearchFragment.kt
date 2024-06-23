@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.newsappmvvm.adapters.TrendyAdapters
 import com.example.newsappmvvm.data.local.NewsDatabase
 import com.example.newsappmvvm.databinding.FragmentSearchBinding
-import com.example.newsappmvvm.model.New
+import com.example.newsappmvvm.model.Article
 import com.example.newsappmvvm.repose.NewsRepositery
 import com.example.newsappmvvm.viewmodel.SearchViewModel
 import com.example.newsappmvvm.viewmodel.SearchViewModelProviderFactory
@@ -30,8 +30,8 @@ class SearchFragment : Fragment() {
         binding = FragmentSearchBinding.inflate(inflater,container,false)
         var searchViewModelProviderFactory = SearchViewModelProviderFactory(repo)
         viewModel = ViewModelProvider(this,searchViewModelProviderFactory)[SearchViewModel::class.java]
-        binding.btn.setOnClickListener {
-            viewModel.newsSearchFun("${binding.editText.text}", "a467fd4b93cd453eaaa8a072c10d5d98")
+        binding.iconbtn.setOnClickListener {
+            viewModel.newsSearchFun("${binding.name.text}", "a467fd4b93cd453eaaa8a072c10d5d98")
             setUpSearch()
             // Inflate the layout for this fragment
         }
@@ -45,7 +45,7 @@ class SearchFragment : Fragment() {
                 adapter = TrendyAdapters(context, onItemClick = {
                     val action = SearchFragmentDirections.actionSearchFragmentToDetailsFragment(it)
                     findNavController().navigate(action)
-                }, it.news as ArrayList<New>)
+                }, it.news as ArrayList<Article>)
             }
         })
     }

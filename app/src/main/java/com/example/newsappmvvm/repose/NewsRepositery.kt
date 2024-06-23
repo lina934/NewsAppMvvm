@@ -3,7 +3,7 @@ package com.example.newsappmvvm.repose
 import com.example.newsappmvvm.data.api.RetrofitInstanse
 import com.example.newsappmvvm.data.local.NewsDao
 import com.example.newsappmvvm.model.CarsResponse
-import com.example.newsappmvvm.model.New
+import com.example.newsappmvvm.model.Article
 import retrofit2.Response
 
 class NewsRepositery(private val dao: NewsDao) {
@@ -19,19 +19,19 @@ class NewsRepositery(private val dao: NewsDao) {
         return RetrofitInstanse.api.getSearchCars(q, api)
     }
 
-    suspend fun insertNew(new: New) {
-        dao.insertNews(new)
+    suspend fun insertNew(article: Article) {
+        dao.insertNews(article)
     }
 
-    fun getFavNew(): List<New> {
+   suspend fun getFavNew(): List<Article> {
         return dao.getAllFavouriteNews()
     }
 
-    suspend fun isExisted(newsUrl: String): Boolean {
-        return dao.isExisted(newsUrl)
+    suspend fun isExisted(articleUrl: String): Boolean {
+        return dao.isExisted(articleUrl)
     }
 
-    suspend fun deleteNews(newsUrl: String) {
-        dao.deleteNews(newsUrl)
+    suspend fun deleteNews(articleUrl: String) {
+        dao.deleteNews(articleUrl)
     }
 }

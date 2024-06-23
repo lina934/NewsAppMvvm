@@ -9,7 +9,6 @@ interface CarsApi {
     @GET("everything")
    suspend fun getHomeCars(
         @Query("q") q : String,
-//        @Query("from") from : String,
         @Query("apiKey") apiKey : String
     )
     :Response<CarsResponse>
@@ -17,7 +16,6 @@ interface CarsApi {
     @GET("everything")
     suspend fun getTrendyCars(
         @Query("q") q : String,
-//        @Query("from") from : String,
         @Query("apiKey") apiKey : String
     )
     :Response<CarsResponse>
@@ -25,7 +23,6 @@ interface CarsApi {
     @GET("everything")
     suspend fun getSearchCars(
         @Query("q") q : String,
-//        @Query("from") from : String,
         @Query("apiKey") apiKey : String
     )
             :Response<CarsResponse>

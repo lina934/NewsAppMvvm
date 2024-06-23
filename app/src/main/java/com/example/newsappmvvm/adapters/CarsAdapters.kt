@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newsappmvvm.databinding.ItemRowHomeBinding
-import com.example.newsappmvvm.model.New
+import com.example.newsappmvvm.model.Article
 import com.squareup.picasso.Picasso
 
 class CarsAdapters(
     private var context: Context,
-    var onItemClick: ((New) -> Unit),
-    private var listCars: List<New>
+    var onItemClick: ((Article) -> Unit),
+    private var listCars: List<Article>
 ) : RecyclerView.Adapter<CarsAdapters.ViewHolder>() {
     class ViewHolder(var binding: ItemRowHomeBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -29,7 +29,7 @@ class CarsAdapters(
 
             holder.binding.newsname.text = currentCar.source.name
             Picasso.with(context).load(currentCar.urlToImage).into(holder.binding.image)
-            holder.binding.nwestitle.text = currentCar.author
+//            holder.binding.nwestitle.text = currentCar.author
 
             holder.binding.card.setOnClickListener {
                 onItemClick.invoke(currentCar)

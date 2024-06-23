@@ -1,6 +1,7 @@
 package com.example.newsappmvvm.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -26,30 +27,34 @@ class FavouriteFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentFavouriteBinding.inflate(inflater,container,false)
+        binding = FragmentFavouriteBinding.inflate(inflater, container, false)
 
         val favouriteViewModelProviderFactory = FavouriteViewModelProviderFactory(repo)
-        viewModel = ViewModelProvider(this,favouriteViewModelProviderFactory)[FavouriteViewModel::class.java]
+        viewModel = ViewModelProvider(
+            this,
+            favouriteViewModelProviderFactory
+        )[FavouriteViewModel::class.java]
 
         viewModel.getFavEnemies()
+        subScribeFav()
 
-
-        binding.backe.setOnClickListener {
-            requireActivity().onBackPressed()
-        }
+//        binding.backe.setOnClickListener {
+//            requireActivity().onBackPressed()
+//        }
         // Inflate the layout for this fragment
         return binding.root
     }
 
-    private fun subScribeFav(){
-        viewModel.favNew.observe(viewLifecycleOwner, Observer {listenemy->
+    private fun subScribeFav() {
+        viewModel.favNew.observe(viewLifecycleOwner, Observer { listenemy ->
             binding.favoritesRecycler.apply {
-                adapter = CarsAdapters(context,{news->
+                adapter = CarsAdapters(requireContext(), { news ->
+                    Log.d("FavouriteFragment", "Clicked on: ${news.title}")
                     val action =
-                    FavouriteFragmentDirections.actionFavouriteFragmentToDetailsFragment(news)
+                        FavouriteFragmentDirections.actionFavouriteFragmentToDetailsFragment(news)
                     findNavController().navigate(action)
 
-                }, listenemy )
+                }, listenemy)
             }
         })
     }

@@ -4,9 +4,9 @@ import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
-@Entity(tableName = "News")
+@Entity(tableName = "articles")
 @Parcelize
-data class New(
+data class Article(
     val author: String?,
     val content: String,
     val description: String,

@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.newsappmvvm.adapters.CarsAdapters
 import com.example.newsappmvvm.data.local.NewsDatabase
 import com.example.newsappmvvm.databinding.FragmentHomeBinding
-import com.example.newsappmvvm.model.New
+import com.example.newsappmvvm.model.Article
 import com.example.newsappmvvm.repose.NewsRepositery
 import com.example.newsappmvvm.viewmodel.HomeViewModel
 import com.example.newsappmvvm.viewmodel.HomeViewModelProviderFactory
@@ -41,7 +41,7 @@ fun setUpHome(){
       adapter = CarsAdapters(context, onItemClick = {
           val action = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(it)
           findNavController().navigate(action)
-      },it.news as ArrayList<New>)
+      },it.news as ArrayList<Article>)
         }
     })
 }

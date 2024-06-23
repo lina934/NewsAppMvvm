@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsappmvvm.data.api.RetrofitInstanse
 import com.example.newsappmvvm.model.CarsResponse
 import com.example.newsappmvvm.repose.NewsRepositery
 import kotlinx.coroutines.Dispatchers

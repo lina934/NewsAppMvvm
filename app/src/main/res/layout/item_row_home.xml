@@ -32,18 +32,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image" />
 
-        <TextView
-            android:id="@+id/nwestitle"
-            android:layout_width="150dp"
-            android:layout_height="40dp"
-            android:fontFamily="@font/cairo_medium"
-            android:text="kjnhbhbhb"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/newsname"
-            android:maxLines="1"/>
+<!--        <TextView-->
+<!--            android:id="@+id/nwestitle"-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:fontFamily="@font/cairo_medium"-->
+<!--            android:text="kjnhbhbhb"-->
+<!--            android:textSize="16sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/newsname"-->
+<!--            android:maxLines="1"/>-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

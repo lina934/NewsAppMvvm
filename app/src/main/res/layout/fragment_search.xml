@@ -10,23 +10,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/editText"
-            android:layout_width="300dp"
-            android:layout_height="80dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="32dp"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            style="@style/TextInputLayoutStyle"
+            android:id="@+id/name_parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="80dp"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:id="@+id/name"
+                android:hint="search about news"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <ImageView
-            android:id="@+id/btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/search2"
-            app:layout_constraintBottom_toBottomOf="@+id/editText"
+
+            android:id="@+id/iconbtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:clickable="true"
+            android:src="@drawable/icon_search"
+            app:layout_constraintBottom_toBottomOf="@+id/name_parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/editText"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/name_parent"
+            app:layout_constraintTop_toTopOf="@+id/name_parent"
             app:tint="@color/white" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -34,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@+id/editText"
+            app:layout_constraintTop_toBottomOf="@+id/name_parent"
             app:spanCount="1"
             tools:listitem="@layout/item_row" />
 
